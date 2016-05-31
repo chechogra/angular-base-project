@@ -1,11 +1,8 @@
-/* global malarkey:false, moment:false */
 (function() {
   'use strict';
 
   angular
     .module('angularBaseProject')
-    .constant('malarkey', malarkey)
-    .constant('moment', moment)
     .constant('LOCALES', {
       'locales': {
         'en': 'English',
