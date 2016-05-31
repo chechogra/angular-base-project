@@ -1,6 +1,6 @@
 {
   "global": {
-    "APP_NAME": "VimeoTest",
-    "POWERED_BY": "Powered by Talos Digital"
+    "POWERED_BY": "Powered by Talos Digital",
+    "SELECT_LANGUAGE": "Select language"
   }
 }

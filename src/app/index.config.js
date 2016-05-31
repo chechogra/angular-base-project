@@ -6,7 +6,7 @@
     .config(config);
 
   /** @ngInject */
-  function config($translateProvider, $logProvider, toastrConfig) {
+  function config($translateProvider, $logProvider, toastrConfig, LOCALES, tmhDynamicLocaleProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
@@ -18,28 +18,20 @@
     toastrConfig.progressBar = true;
 
     //Angular translate configuration
-    $translateProvider.preferredLanguage('en');
-
-    $translateProvider.useStaticFilesLoader({
-      prefix: 'app/lang/',
-      suffix: '.json'
-    });
-
-    $translateProvider.registerAvailableLanguageKeys(['en', 'es'], {
-      'en_SG': 'en',
-      'en_UK': 'en',
-      'en_US': 'en',
-      'es_145': 'es',
-      'es_ES': 'es'
-    });
+    $translateProvider.useMissingTranslationHandlerLog();
+    $translateProvider
+      .useStaticFilesLoader({
+        prefix: 'app/lang/',
+        suffix: '.json'
+      })
+      .registerAvailableLanguageKeys(['en', 'es'], LOCALES.localesMap)
+      .determinePreferredLanguage() // or use $translateProvider.preferredLanguage(LOCALES.preferredLocale);
+      .fallbackLanguage(LOCALES.preferredLocale);
 
     $translateProvider.useLocalStorage();
-
-    $translateProvider.determinePreferredLanguage(function () {
-      return 'en';
-    }).fallbackLanguage('en');
-
     $translateProvider.useSanitizeValueStrategy('escape');
+    tmhDynamicLocaleProvider.localeLocationPattern('bower_components/angular-i18n/angular-locale_{{locale}}.js');
+
   }
 
 })();
