@@ -6,7 +6,8 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController() {
-    
+  function MainController(sidenavLinks) {
+    var vm = this;
+    vm.sidenavLinks = sidenavLinks;
   }
 })();

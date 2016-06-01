@@ -9,8 +9,14 @@
   function sidenavDirective() {
     return{
       restrict: 'E',
+      scope: {
+        items: '='
+      },
       replace: true,
-      templateUrl: 'app/components/sidenav/sidenav.html'
+      templateUrl: 'app/components/sidenav/sidenav.html',
+      link: function ($scope) {
+        $scope.sample = '';
+      }
     }
   }
 })();

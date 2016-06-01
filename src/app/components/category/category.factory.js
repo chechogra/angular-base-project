@@ -25,6 +25,22 @@
 
     };
 
+    categoryFactory.generateCategoryLinks = function(categories){
+      var categoryLinks = [];
+
+      if(categories && categories.length > 0){
+        categoryLinks = categories.map(function(category){
+          var categoryLink = {};
+          categoryLink.label = category.name;
+          categoryLink.state = 'main.category';
+          categoryLink.params = {categoryId: category.id};
+          return categoryLink;
+        });
+      }
+
+      return categoryLinks;
+    };
+
     return categoryFactory;
   }
 })();

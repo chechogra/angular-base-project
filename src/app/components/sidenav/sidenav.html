@@ -1,16 +1,11 @@
 <aside class="sidenav">
   <img src="assets/images/vimeotest-logo.svg" alt="" class="logo">
-
+  <p ng-if="sidenavLinks">existe</p>
   <nav>
     <ul>
-      <li class="active">Category 1</li>
-      <li>Category 2</li>
-      <li>Category 3</li>
-      <li>Category 4</li>
-      <li>Category 5</li>
-      <li>Category 6</li>
-      <li>Category 7</li>
-      <li>Category 8</li>
+      <li ng-repeat="navLink in items | limitTo: 8 track by $index" ui-sref-active="active">
+        <a ui-sref="{{navLink.state}}({{navLink.params}})">{{navLink.label}}</a>
+      </li>
     </ul>
   </nav>
 </aside>

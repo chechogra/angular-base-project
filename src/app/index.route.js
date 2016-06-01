@@ -13,19 +13,21 @@
         abstract: true,
         resolve: {
           /* @ngInject */
-          categoriesResponse: function (CategoryFactory) {
-            return CategoryFactory.getCategories();
+          categories: function (CategoryFactory) {
+            return CategoryFactory.getCategories().then(function (categoriesResponse) {
+              var categories;
+              if(categoriesResponse && categoriesResponse.data && categoriesResponse.data.data
+                && categoriesResponse.data.data.length > 0){
+                categories = CategoryFactory.resolveCategoriesId(categoriesResponse.data.data);
+              }else{
+                categories = [];
+              }
+              return categories;
+            });
           },
           /* @ngInject */
-          categories: function(CategoryFactory, categoriesResponse){
-            var categories;
-            if(categoriesResponse && categoriesResponse.data && categoriesResponse.data.data
-              && categoriesResponse.data.data.length > 0){
-              categories = CategoryFactory.resolveCategoriesId(categoriesResponse.data.data);
-            }else{
-              categories = [];
-            }
-            return categories;
+          sidenavLinks: function(CategoryFactory, categories){
+            return CategoryFactory.generateCategoryLinks(categories);
           }
         }
       })
@@ -43,7 +45,7 @@
           'content@': {
             templateUrl: 'app/main/main.html',
             controller: 'MainController',
-            controllerAs: 'mainCtrl'
+            controllerAs: 'vm'
           }
         }
       });
