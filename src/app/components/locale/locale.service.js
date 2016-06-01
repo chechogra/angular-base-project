@@ -49,6 +49,8 @@
       tmhDynamicLocale.set(data.language.toLowerCase().replace(/_/g, '-'));
     });
 
+    $rootScope.$on('$destroy', destroyHandler);
+
     return {
       getLocaleDisplayName: function () {
         return localesObj[currentLocale];
@@ -62,9 +64,6 @@
       },
       getLocalesDisplayNames: function () {
         return _LOCALES_DISPLAY_NAMES;
-      },
-      destroyEventHandler: function(){
-        destroyHandler();
       }
     };
 

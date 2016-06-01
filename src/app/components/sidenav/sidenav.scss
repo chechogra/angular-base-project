@@ -1,0 +1,58 @@
+$nav-line-height: 30px;
+
+.sidenav{
+  width: $sidenav-width;
+  position: fixed;
+  height: 100%;
+  left: -$sidenav-width;
+  top: 0;
+  color: white;
+  box-sizing: border-box;
+  padding: 30px 15px;
+  border-right: 1px solid black;
+  @include linearGradient(#7061a2, #2b214c);
+
+  @media (min-width: $screen-md-min){
+    left: 0;
+  }
+
+  .logo{
+    height: 35px;
+    margin: 0 0 50px 10px;
+  }
+
+  nav{
+    ul{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li{
+        line-height: $nav-line-height;
+        position: relative;
+        padding-left: 15px;
+        margin-bottom: 10px;
+        @include font-size(1.8);
+        color: #E2DFEA;
+
+        &.active{
+          color: white;
+          font-weight: bold;
+          &:before{
+            background-color: white;
+          }
+        }
+
+        &:before{
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 5px;
+          height: $nav-line-height;
+          display: inline-block;
+          background-color: #B1AAC8;
+        }
+      }
+    }
+  }
+}
