@@ -5,5 +5,5 @@
   </header>
   <p>Talos Angular Template</p>
   <uib-pagination total-items="vm.totalItems" ng-model="vm.page" max-size="vm.maxPaginatorSize" class="pagination-sm"
-                  items-per-page="vm.itemsPerPage" boundary-link-numbers="true" rotate="false"></uib-pagination>
+                  items-per-page="vm.itemsPerPage" ng-change="vm.pageChanged()" boundary-link-numbers="true" rotate="false"></uib-pagination>
 </section>
