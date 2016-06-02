@@ -11,6 +11,9 @@
       .state('main', {
         url: '',
         abstract: true,
+        params: {
+          page : '1'
+        },
         resolve: {
           /* @ngInject */
           categories: function (CategoryFactory) {
@@ -33,9 +36,6 @@
       })
       .state('main.category', {
         url: '/category/:categoryId?page',
-        params: {
-          page : '1'
-        },
         resolve: {
           /* @ngInject */
           responseVideos: function ($stateParams, CategoryFactory) {
@@ -51,6 +51,25 @@
         onEnter: function($state, $stateParams, categories){
           if (!$stateParams.categoryId && categories.length > 0) {
             $state.go('main.category', {'categoryId': categories[0].id });
+          }
+        },
+        views: {
+          'content@': {
+            templateUrl: 'app/main/main.html',
+            controller: 'MainController',
+            controllerAs: 'vm'
+          }
+        }
+      })
+      .state('main.search', {
+        url: '/search?query&page',
+        resolve: {
+          /* @ngInject */
+          responseVideos: function ($stateParams, CategoryFactory) {
+            var videoSearchConfig = CategoryFactory.getVideoSearchConfiguration();
+            videoSearchConfig.page = $stateParams.page;
+            videoSearchConfig.query = $stateParams.query;
+            return CategoryFactory.getVideosByQuery(videoSearchConfig);
           }
         },
         views: {

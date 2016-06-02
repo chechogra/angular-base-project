@@ -51,6 +51,16 @@
       return $http.get(vimeoConfig.API_HOST + 'categories/' + categoryId + '/videos', config);
     };
 
+    categoryFactory.getVideosByQuery = function (params) {
+      var config = {};
+
+      if(params){
+        config.params = params;
+      }
+
+      return $http.get(vimeoConfig.API_HOST + 'videos', config);
+    };
+
     categoryFactory.getVideoSearchConfiguration = function (query, page, perPage, sortDirection) {
       var videoSearchConfig = {};
       if(query){
