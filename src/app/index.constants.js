@@ -85,7 +85,9 @@
     .constant('vimeoConfig', {
       'API_HOST': 'https://api.vimeo.com/',
       'ACCESS_TOKEN': '1b6ac9d70dc6d8d6ff5b5c47b99fb371',
-      'CATEGORIES_URL': 'categories'
+      'PER_PAGE' : 12,
+      'SORT_DIRECTION' : 'asc',
+      'MAX_PAGINATOR_SIZE' : 5
     });
 
 })();

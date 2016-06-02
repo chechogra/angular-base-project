@@ -10,7 +10,7 @@
     var categoryFactory = {};
 
     categoryFactory.getCategories = function(){
-      return $http.get(vimeoConfig.API_HOST + vimeoConfig.CATEGORIES_URL);
+      return $http.get(vimeoConfig.API_HOST + 'categories');
     };
 
     categoryFactory.resolveCategoriesId = function(categories){
@@ -39,6 +39,28 @@
       }
 
       return categoryLinks;
+    };
+
+    categoryFactory.getVideosByCategoryId = function (categoryId, params) {
+      var config = {};
+
+      if(params){
+        config.params = params;
+      }
+
+      return $http.get(vimeoConfig.API_HOST + 'categories/' + categoryId + '/videos', config);
+    };
+
+    categoryFactory.getVideoSearchConfiguration = function (query, page, perPage, sortDirection) {
+      var videoSearchConfig = {};
+      if(query){
+        videoSearchConfig.query = query;
+      }
+
+      videoSearchConfig.page = page ? page : 1;
+      videoSearchConfig.per_page = perPage ? perPage : vimeoConfig.PER_PAGE;
+      videoSearchConfig.direction = sortDirection ? sortDirection : vimeoConfig.SORT_DIRECTION;
+      return videoSearchConfig;
     };
 
     return categoryFactory;

@@ -1,4 +1,9 @@
 <section class="main-section">
   <sidenav items="vm.sidenavLinks"></sidenav>
+  <header class="header-search">
+    <search-box></search-box>
+  </header>
   <p>Talos Angular Template</p>
+  <uib-pagination total-items="vm.totalItems" ng-model="vm.page" max-size="vm.maxPaginatorSize" class="pagination-sm"
+                  items-per-page="vm.itemsPerPage" boundary-link-numbers="true" rotate="false"></uib-pagination>
 </section>

@@ -13,10 +13,7 @@
         items: '='
       },
       replace: true,
-      templateUrl: 'app/components/sidenav/sidenav.html',
-      link: function ($scope) {
-        $scope.sample = '';
-      }
+      templateUrl: 'app/components/sidenav/sidenav.html'
     }
   }
 })();

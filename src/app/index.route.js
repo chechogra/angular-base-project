@@ -32,9 +32,21 @@
         }
       })
       .state('main.category', {
-        url: '/category/:categoryId',
-        resolve: {/* @ngInject */
+        url: '/category/:categoryId?page',
+        params: {
+          page : '1'
+        },
+        resolve: {
+          /* @ngInject */
+          responseVideos: function ($stateParams, CategoryFactory) {
+            if(!$stateParams.categoryId){
+              return [];
+            }
 
+            var videoSearchConfig = CategoryFactory.getVideoSearchConfiguration();
+            videoSearchConfig.page = $stateParams.page;
+            return CategoryFactory.getVideosByCategoryId($stateParams.categoryId, videoSearchConfig);
+          }
         },
         onEnter: function($state, $stateParams, categories){
           if (!$stateParams.categoryId && categories.length > 0) {
