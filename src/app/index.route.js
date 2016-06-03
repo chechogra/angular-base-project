@@ -38,14 +38,14 @@
         url: '/category/:categoryId?page',
         resolve: {
           /* @ngInject */
-          responseVideos: function ($stateParams, CategoryFactory) {
+          responseVideos: function ($stateParams, VideoFactory) {
             if(!$stateParams.categoryId){
-              return [];
+              return null;
             }
 
-            var videoSearchConfig = CategoryFactory.getVideoSearchConfiguration();
+            var videoSearchConfig = VideoFactory.getVideoSearchConfiguration();
             videoSearchConfig.page = $stateParams.page;
-            return CategoryFactory.getVideosByCategoryId($stateParams.categoryId, videoSearchConfig);
+            return VideoFactory.getVideosByCategoryId($stateParams.categoryId, videoSearchConfig);
           }
         },
         onEnter: function($state, $stateParams, categories){
@@ -65,11 +65,11 @@
         url: '/search?query&page',
         resolve: {
           /* @ngInject */
-          responseVideos: function ($stateParams, CategoryFactory) {
-            var videoSearchConfig = CategoryFactory.getVideoSearchConfiguration();
+          responseVideos: function ($stateParams, VideoFactory) {
+            var videoSearchConfig = VideoFactory.getVideoSearchConfiguration();
             videoSearchConfig.page = $stateParams.page;
             videoSearchConfig.query = $stateParams.query;
-            return CategoryFactory.getVideosByQuery(videoSearchConfig);
+            return VideoFactory.getVideosByQuery(videoSearchConfig);
           }
         },
         views: {

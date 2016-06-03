@@ -14,6 +14,7 @@
     };
 
     categoryFactory.resolveCategoriesId = function(categories){
+
       if(categories){
         return categories.map(function(category){
           category.id =  category.uri.split('/').pop();
@@ -40,39 +41,7 @@
 
       return categoryLinks;
     };
-
-    categoryFactory.getVideosByCategoryId = function (categoryId, params) {
-      var config = {};
-
-      if(params){
-        config.params = params;
-      }
-
-      return $http.get(vimeoConfig.API_HOST + 'categories/' + categoryId + '/videos', config);
-    };
-
-    categoryFactory.getVideosByQuery = function (params) {
-      var config = {};
-
-      if(params){
-        config.params = params;
-      }
-
-      return $http.get(vimeoConfig.API_HOST + 'videos', config);
-    };
-
-    categoryFactory.getVideoSearchConfiguration = function (query, page, perPage, sortDirection) {
-      var videoSearchConfig = {};
-      if(query){
-        videoSearchConfig.query = query;
-      }
-
-      videoSearchConfig.page = page ? page : 1;
-      videoSearchConfig.per_page = perPage ? perPage : vimeoConfig.PER_PAGE;
-      videoSearchConfig.direction = sortDirection ? sortDirection : vimeoConfig.SORT_DIRECTION;
-      return videoSearchConfig;
-    };
-
+    
     return categoryFactory;
   }
 })();

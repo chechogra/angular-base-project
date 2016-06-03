@@ -3,15 +3,26 @@
   <header class="header-search">
     <search-box></search-box>
   </header>
-  <div class="video-grid">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" ng-repeat="videoItem in vm.videos track by $index">
-          <video-item image-src="{{videoItem.pictures.sizes[3].link}}" caption-text="{{videoItem.name}}"></video-item>
-        </div>
-      </div>
+
+  <div class="grid-content">
+    <ul class="dynamic-grid" angular-grid="vm.videos" ag-options="vm.angularGridoptions" ag-id="gallery">
+      <li data-ng-repeat="videoItem in vm.videos" class="grid">
+        <figure ng-if="videoItem.pictures && videoItem.pictures.sizes && videoItem.pictures.sizes.length >= 3">
+          <img ng-src="{{videoItem.pictures.sizes[2].link}}" class="grid-img" data-actual-width = "{{videoItem.pictures.sizes[2].width}}"  data-actual-height="{{videoItem.pictures.sizes[2].height}}" />
+          <figcaption>{{videoItem.name}}</figcaption>
+        </figure>
+        <figure ng-if="!videoItem.pictures || !videoItem.pictures.sizes || videoItem.pictures.sizes.length < 3">
+          <img src="assets/images/video-fallback-img.png" class="grid-img" data-actual-width = "295"  data-actual-height="166" />
+          <figcaption>{{videoItem.name}}</figcaption>
+        </figure>
+      </li>
+    </ul>
+
+    <div class="pagination-container">
+      <uib-pagination total-items="vm.totalItems" ng-model="vm.page" max-size="vm.maxPaginatorSize" class="pagination-sm"
+                      items-per-page="vm.itemsPerPage" ng-change="vm.pageChanged()" boundary-link-numbers="true" rotate="false"></uib-pagination>
     </div>
   </div>
-  <uib-pagination total-items="vm.totalItems" ng-model="vm.page" max-size="vm.maxPaginatorSize" class="pagination-sm"
-                  items-per-page="vm.itemsPerPage" ng-change="vm.pageChanged()" boundary-link-numbers="true" rotate="false"></uib-pagination>
+
+
 </section>

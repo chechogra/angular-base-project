@@ -71,3 +71,80 @@ html, body {  height: 100%; }
   }
 
 }
+
+.grid-content{
+  padding: $content-h-padding;
+  box-sizing: border-box;
+  max-width: $grid-max-width;
+  margin: 0 auto;
+
+  .pagination-container{
+    display: block;
+    text-align: center;
+    margin: 20px 0;
+  }
+}
+
+
+.dynamic-grid {
+  position: relative;
+  display: none;
+  &.angular-grid {
+    display: block;
+  }
+
+  .grid {
+    list-style: none;
+    background: #ffffff;
+    box-sizing: border-box;
+    position: absolute;
+    transition: all 400ms ease;
+    overflow: hidden;
+
+    &.ng-leave {
+      transition: all ease 400ms;
+      &.ng-leave-active {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    &.ng-enter {
+      transition: all ease 400ms;
+      transition-delay: 500ms;
+      transform: scale(0.5);
+      opacity: 0;
+      &.ng-enter-active {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .grid-img {
+      width: 100%;
+      vertical-align: middle;
+      transition: opacity 0.6s ease-out;
+      background-color: #fff;
+      opacity: 0;
+      visibility: hidden;
+
+      &.img-loaded{
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    figcaption{
+      padding: 8px 0 16px;
+      color: #635492;
+      text-transform: uppercase;
+      font-weight: bold;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+  }
+
+}
