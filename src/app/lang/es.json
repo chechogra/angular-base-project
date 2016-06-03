@@ -1,6 +1,7 @@
 {
   "global": {
     "POWERED_BY": "Creada por Talos Digital",
-    "SELECT_LANGUAGE": "Selecciona el lenguaje"
+    "SELECT_LANGUAGE": "Selecciona el lenguaje",
+    "SEARCH_LABEL": "Search videos"
   }
 }

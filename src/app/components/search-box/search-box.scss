@@ -1,5 +1,28 @@
-.header-search{
-  background-color: #FAFAFA;
-  border-bottom: 1px solid #EEEEEE;
-  padding: 20px $content-h-padding;
+.search-container{
+  display: inline-block;
+  width: 260px;
+  position: relative;
+
+  .search-btn{
+    width: 26px;
+    height: 26px;
+    display: block;
+    border: none;
+    outline: 0;
+    position: absolute;
+    right: 18px;
+    top: 7px;
+    background: #ffffff url("/assets/images/vimeotest-assets.png") no-repeat 0 -26px;;
+  }
+
+  input[type=search]{
+    padding: 10px 50px 10px 20px;
+    border-radius: 50px;
+    box-shadow: none;
+    outline: 0;
+    border: 1px solid #EEEEEE;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
 }

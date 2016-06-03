@@ -12,13 +12,18 @@
       scope: {},
       replace: true,
       templateUrl: 'app/components/search-box/search-box.html',
-      link: function (scope) {
+      link: function (scope, element) {
+
+        scope.broadcastEvent = function () {
+          var searchElement = element[0].querySelector('input[type=search]');
+          if(searchElement && searchElement.value){
+            $rootScope.$broadcast('search-box:query', searchElement.value);
+          }
+        };
+
         scope.fireSearch = function (keyEvent) {
           if(keyEvent.which === 13){
-            var searchValue = keyEvent.target.value;
-            if(searchValue){
-              $rootScope.$broadcast('search-box:query', searchValue);
-            }
+            scope.broadcastEvent();
           }
         };
       }

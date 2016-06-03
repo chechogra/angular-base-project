@@ -55,6 +55,13 @@ html, body {  height: 100%; }
   line-height: $footer-height;
 }
 
+.header-search{
+  background-color: #FAFAFA;
+  border-bottom: 1px solid #EEEEEE;
+  padding: 20px $content-h-padding;
+  text-align: right;
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;

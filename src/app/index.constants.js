@@ -87,7 +87,7 @@
       'ACCESS_TOKEN': '1b6ac9d70dc6d8d6ff5b5c47b99fb371',
       'PER_PAGE' : 12,
       'SORT_DIRECTION' : 'asc',
-      'MAX_PAGINATOR_SIZE' : 5
+      'MAX_PAGINATOR_SIZE' : 3
     });
 
 })();
