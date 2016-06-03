@@ -3,7 +3,15 @@
   <header class="header-search">
     <search-box></search-box>
   </header>
-  <p>Talos Angular Template</p>
+  <div class="video-grid">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" ng-repeat="videoItem in vm.videos track by $index">
+          <video-item image-src="{{videoItem.pictures.sizes[3].link}}" caption-text="{{videoItem.name}}"></video-item>
+        </div>
+      </div>
+    </div>
+  </div>
   <uib-pagination total-items="vm.totalItems" ng-model="vm.page" max-size="vm.maxPaginatorSize" class="pagination-sm"
                   items-per-page="vm.itemsPerPage" ng-change="vm.pageChanged()" boundary-link-numbers="true" rotate="false"></uib-pagination>
 </section>

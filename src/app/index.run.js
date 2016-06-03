@@ -17,7 +17,7 @@
         }
       });
 
-    var deregisterationSearchEvent = $rootScope.$on('searchEvent', function (event, data) {
+    var deregisterationSearchEvent = $rootScope.$on('search-box:query', function (event, data) {
       $state.go('main.search', { query: data });
     });
 

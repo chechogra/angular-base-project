@@ -17,7 +17,7 @@
           if(keyEvent.which === 13){
             var searchValue = keyEvent.target.value;
             if(searchValue){
-              $rootScope.$broadcast('searchEvent', searchValue);
+              $rootScope.$broadcast('search-box:query', searchValue);
             }
           }
         };

@@ -14,6 +14,10 @@
     vm.maxPaginatorSize = vimeoConfig.MAX_PAGINATOR_SIZE;
     vm.itemsPerPage = vimeoConfig.PER_PAGE;
 
+    vm.videos = (responseVideos && responseVideos.data && responseVideos.data.data) ? responseVideos.data.data : [];
+
+    $log.info(vm.videos);
+
     vm.pageChanged = function () {
       $state.go('.', { page: vm.page});
     };
