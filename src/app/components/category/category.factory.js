@@ -34,14 +34,14 @@
           var categoryLink = {};
           categoryLink.label = category.name;
           categoryLink.state = 'main.category';
-          categoryLink.params = {categoryId: category.id};
+          categoryLink.params = {categoryId: category.id, page: 1};
           return categoryLink;
         });
       }
 
       return categoryLinks;
     };
-    
+
     return categoryFactory;
   }
 })();

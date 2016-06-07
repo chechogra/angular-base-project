@@ -50,7 +50,7 @@
         },
         onEnter: function($state, $stateParams, categories){
           if (!$stateParams.categoryId && categories.length > 0) {
-            $state.go('main.category', {'categoryId': categories[0].id });
+            $state.go('main.category', {'categoryId': categories[0].id, 'page': 1 });
           }
         },
         views: {

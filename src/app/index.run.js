@@ -10,9 +10,23 @@
 
     $http.defaults.headers.common.Authorization = 'Bearer ' + vimeoConfig.ACCESS_TOKEN;
 
+
+    var deregisterationStateChangeStart = $rootScope.$on('$stateChangeStart', function(event, toState) {
+      if (toState.resolve) {
+        $rootScope.$broadcast('state:loading', '');
+      }
+    });
+    var deregisterationStateChangeSuccess = $rootScope.$on('$stateChangeSuccess', function(event, toState) {
+      if (toState.resolve) {
+        $rootScope.$broadcast('state:loaded', '');
+      }
+    });
+
+
     var deregisterationStateChangeError = $rootScope.$on('$stateChangeError',
       function (event, toState, toParams, fromState, fromParams, error) {
         if (error) {
+          $rootScope.$broadcast('state:loaded', '');
           event.preventDefault();
         }
       });
@@ -22,6 +36,8 @@
     });
 
     $rootScope.$on('$destroy', function () {
+      deregisterationStateChangeStart();
+      deregisterationStateChangeSuccess();
       deregisterationStateChangeError();
       deregisterationSearchEvent();
     });
