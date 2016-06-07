@@ -1,4 +1,6 @@
 $nav-line-height: 30px;
+$sidenav-width: 310px !default;
+$screen-md-min: 992px !default;
 
 .sidenav{
   width: $sidenav-width;
@@ -11,9 +13,9 @@ $nav-line-height: 30px;
   box-sizing: border-box;
   padding: 30px 15px;
   border-right: 1px solid black;
-  z-index: 100;
+  z-index: 1000;
   @include linearGradient(#7061a2, #2b214c);
-  transition: left 500ms;
+  transition: left 300ms;
 
   &.open{
     left: 0;

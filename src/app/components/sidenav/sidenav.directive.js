@@ -19,7 +19,7 @@
         var closeButtonDOM = $document[0].querySelector('.close-sidenav');
         var toogleButton, closeButton;
 
-        var toogleSidenav = function () {
+        scope.toogleSidenav = function () {
           if(element.hasClass('open')){
             element.removeClass('open');
           }else{
@@ -29,11 +29,11 @@
 
         if(toogleButtonDOM){
           toogleButton = angular.element(toogleButtonDOM);
-          toogleButton.on('click', toogleSidenav);
+          toogleButton.on('click', scope.toogleSidenav);
 
         }
 
-        var closeSidenav = function () {
+        scope.closeSidenav = function () {
           if(element.hasClass('open')){
             element.removeClass('open');
           }
@@ -41,17 +41,17 @@
 
         if(closeButtonDOM){
           closeButton = angular.element(closeButtonDOM);
-          closeButton.on('click', closeSidenav);
+          closeButton.on('click', scope.closeSidenav);
 
         }
 
         scope.$on('$destroy', function () {
           if(toogleButton){
-            toogleButton.off('click', toogleSidenav);
+            toogleButton.off('click', scope.toogleSidenav);
           }
 
           if(closeButton){
-            closeButton.off('click', closeSidenav);
+            closeButton.off('click', scope.closeSidenav);
           }
 
         });

@@ -58,15 +58,22 @@ html, body {  height: 100%; }
 .header-search{
   background-color: #FAFAFA;
   border-bottom: 1px solid #EEEEEE;
-  padding: 20px $content-h-padding;
+  padding: 10px $content-h-padding 10px 45px;
   text-align: right;
-  position: relative;
-  padding-left: 45px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
   .toogle-sidenav{
     position: absolute;
     left: $content-h-padding;
     top: 50%;
     margin-top: -13px;
+  }
+
+  @media (min-width: $screen-md-min){
+    padding: 20px $content-h-padding 20px 45px;
   }
 }
 
@@ -81,8 +88,11 @@ html, body {  height: 100%; }
 // Responsive section
 .main-section{
 
+  padding-top: 70px;
+
   @media (min-width: $screen-md-min){
     padding-left: $sidenav-width;
+    padding-top: 90px;
   }
 
 }
@@ -150,7 +160,7 @@ html, body {  height: 100%; }
     }
 
     figcaption{
-      padding: 8px 0 16px;
+      padding: 8px 0 10px;
       color: #635492;
       text-transform: uppercase;
       font-weight: bold;
@@ -158,6 +168,10 @@ html, body {  height: 100%; }
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+
+      @media (max-width: 634px){
+        border-bottom: 1px solid #BAB7C3;
+      }
     }
 
   }
