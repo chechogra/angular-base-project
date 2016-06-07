@@ -60,6 +60,14 @@ html, body {  height: 100%; }
   border-bottom: 1px solid #EEEEEE;
   padding: 20px $content-h-padding;
   text-align: right;
+  position: relative;
+  padding-left: 45px;
+  .toogle-sidenav{
+    position: absolute;
+    left: $content-h-padding;
+    top: 50%;
+    margin-top: -13px;
+  }
 }
 
 .browsehappy {

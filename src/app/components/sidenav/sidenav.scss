@@ -11,14 +11,20 @@ $nav-line-height: 30px;
   box-sizing: border-box;
   padding: 30px 15px;
   border-right: 1px solid black;
+  z-index: 100;
   @include linearGradient(#7061a2, #2b214c);
+  transition: left 500ms;
+
+  &.open{
+    left: 0;
+  }
 
   @media (min-width: $screen-md-min){
     left: 0;
   }
 
   .logo{
-    height: 35px;
+    height: 30px;
     margin: 0 0 50px 10px;
   }
 
@@ -65,5 +71,37 @@ $nav-line-height: 30px;
         }
       }
     }
+  }
+}
+
+.toogle-sidenav{
+  border: none;
+  outline: 0;
+  width: 37px;
+  height: 26px;
+  background: #ffffff url("/assets/images/vimeotest-assets.png") no-repeat 0 0px;
+  display: inline-block;
+  vertical-align: middle;
+  @media (min-width: $screen-md-min){
+    display: none;
+  }
+}
+
+.close-sidenav{
+  background-color: transparent;
+  border: none;
+  outline: 0;
+  color: white;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  display: inline-block;
+  &:after{
+    content: "x";
+    font-size: 30px;
+  }
+
+  @media (min-width: $screen-md-min){
+    display: none;
   }
 }
