@@ -79,6 +79,36 @@
             controllerAs: 'vm'
           }
         }
+      })
+      .state('main.detail', {
+        url: '/detail/:videoId',
+        resolve: {
+          /* @ngInject */
+          videoDetails: function ($stateParams, VideoFactory) {
+            return VideoFactory.getVideoById($stateParams.videoId).then(function (videoResponse) {
+
+              if(videoResponse && videoResponse.data){
+                videoResponse.data.id = $stateParams.videoId;
+                return videoResponse.data;
+              }else{
+                return null;
+              }
+
+            });
+          }
+        },
+        onEnter: function($state, videoDetails, categories){
+          if (!videoDetails) {
+            $state.go('main.category', {'categoryId': categories[0].id, 'page': 1 });
+          }
+        },
+        views: {
+          'content@': {
+            templateUrl: 'app/detail/detail.html',
+            controller: 'DetailController',
+            controllerAs: 'vm'
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/category/');

@@ -8,14 +8,16 @@
   <div class="grid-content">
     <ul class="dynamic-grid" angular-grid="vm.videos" ag-options="vm.angularGridoptions" ag-id="gallery">
       <li data-ng-repeat="videoItem in vm.videos" class="grid">
-        <figure ng-if="videoItem.pictures && videoItem.pictures.sizes && videoItem.pictures.sizes.length >= 3">
-          <img ng-src="{{videoItem.pictures.sizes[2].link}}" class="grid-img" data-actual-width = "{{videoItem.pictures.sizes[2].width}}"  data-actual-height="{{videoItem.pictures.sizes[2].height}}" />
-          <figcaption>{{videoItem.name}}</figcaption>
-        </figure>
-        <figure ng-if="!videoItem.pictures || !videoItem.pictures.sizes || videoItem.pictures.sizes.length < 3">
-          <img src="assets/images/video-fallback-img.png" class="grid-img" data-actual-width = "295"  data-actual-height="166" />
-          <figcaption>{{videoItem.name}}</figcaption>
-        </figure>
+        <a ng-click="vm.goToVideo(videoItem.id)">
+          <figure ng-if="videoItem.pictures && videoItem.pictures.sizes && videoItem.pictures.sizes.length >= 3">
+            <img ng-src="{{videoItem.pictures.sizes[2].link}}" class="grid-img" data-actual-width = "{{videoItem.pictures.sizes[2].width}}"  data-actual-height="{{videoItem.pictures.sizes[2].height}}" />
+            <figcaption>{{videoItem.name}}</figcaption>
+          </figure>
+          <figure ng-if="!videoItem.pictures || !videoItem.pictures.sizes || videoItem.pictures.sizes.length < 3">
+            <img src="assets/images/video-fallback-img.png" class="grid-img" data-actual-width = "295"  data-actual-height="166" />
+            <figcaption>{{videoItem.name}}</figcaption>
+          </figure>
+        </a>
       </li>
     </ul>
 

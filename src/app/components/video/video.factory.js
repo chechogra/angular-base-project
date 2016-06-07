@@ -43,6 +43,10 @@
       return $http.get(vimeoConfig.API_HOST + 'videos', config);
     };
 
+    videoFactory.getVideoById = function (videoId) {
+      return $http.get(vimeoConfig.API_HOST + 'videos/' + videoId);
+    };
+
     videoFactory.getVideoSearchConfiguration = function (query, page, perPage, sortDirection) {
       var videoSearchConfig = {};
       if(query){

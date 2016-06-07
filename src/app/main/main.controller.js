@@ -23,8 +23,8 @@
       gutterSize: 15
     };
 
-    vm.goToVideo = function(){
-
+    vm.goToVideo = function(videoId){
+      $state.go('main.detail', {'videoId': videoId });
     };
 
     $log.info(vm.videos);
