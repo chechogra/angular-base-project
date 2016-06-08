@@ -4,7 +4,7 @@
   .video-wrapper{
     width: 100%;
     min-width: 320px;
-    max-width: 504px;
+    //max-height: 400px;
     margin: 0 auto;
     background-color: black;
 
@@ -27,3 +27,55 @@
     }
   }
 }
+
+.video-content{
+  padding: 20px;
+  .video-title-wp{
+    position: relative;
+    padding: 0 0 15px 0;
+
+    @media (min-width: $screen-md-min){
+      padding: 5px 0 15px 80px;
+    }
+
+    .vimeo-user-img{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      display: none;
+      @media (min-width: $screen-md-min){
+        display: block;
+      }
+    }
+    .video-title{
+      color: #635392;
+      font-weight: bold;
+      margin: 0;
+      font-size: 28px;
+      @media (min-width: $screen-md-min){
+        font-size: 36px;
+      }
+    }
+    .vimeo-user-info{
+      color: #545454;
+      font-size: 18px;
+      .video-user-name{
+        color: black;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .video-description{
+    color: #333333;
+    font-size: 18px;
+    margin-bottom: 15px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+}
+

@@ -7,12 +7,26 @@
 
   <div class="detail-top">
     <div class="video-wrapper" ng-style="{'max-width': vm.videoDetails.width + 'px'}">
-      <div class="video-wrapper-inner" ng-bind-html="vm.videoDetails.htmlVideo" ng-style="{'padding-bottom': ((vm.videoDetails.height / vm.videoDetails.width)*100) + '%'}">
+      <div class="video-wrapper-inner" ng-bind-html="vm.videoDetails.htmlVideo"
+           ng-style="{'padding-bottom': ((vm.videoDetails.height / vm.videoDetails.width)*100) + '%'}">
       </div>
     </div>
   </div>
 
 
-  <p>{{vm.videoDetails.name}}</p>
+  <div class="video-content">
+    <div class="video-title-wp">
+      <img class="vimeo-user-img" ng-src="{{vm.videoDetails.user.pictures.sizes[1].link}}" alt="" />
+      <h1 class="video-title">{{vm.videoDetails.name}}</h1>
+      <p class="vimeo-user-info">
+        {{'global.FROM_LABEL' | translate}} <span class="video-user-name">{{vm.videoDetails.user.name}}</span>
+        &nbsp;|&nbsp; <span am-time-ago="vm.videoDetails.created_time"></span>
+      </p>
+    </div>
+
+    <p class="video-description">{{vm.videoDetails.description}}</p>
+  </div>
+
+
 </section>
 <state-loader></state-loader>

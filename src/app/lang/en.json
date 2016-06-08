@@ -2,6 +2,7 @@
   "global": {
     "POWERED_BY": "Powered by Talos Digital",
     "SELECT_LANGUAGE": "Select language",
-    "SEARCH_LABEL": "Search videos"
+    "SEARCH_LABEL": "Search videos",
+    "FROM_LABEL": "From"
   }
 }
