@@ -5,8 +5,14 @@
     <search-box></search-box>
   </header>
 
+  <div class="detail-top">
+    <div class="video-wrapper" ng-style="{'max-width': vm.videoDetails.width + 'px'}">
+      <div class="video-wrapper-inner" ng-bind-html="vm.videoDetails.htmlVideo" ng-style="{'padding-bottom': ((vm.videoDetails.height / vm.videoDetails.width)*100) + '%'}">
+      </div>
+    </div>
+  </div>
+
+
   <p>{{vm.videoDetails.name}}</p>
-
-
 </section>
 <state-loader></state-loader>

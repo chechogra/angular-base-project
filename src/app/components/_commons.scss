@@ -59,6 +59,7 @@ html, body {  height: 100%; }
   background-color: #FAFAFA;
   border-bottom: 1px solid #EEEEEE;
   padding: 10px $content-h-padding 10px 45px;
+  height: 62px;
   text-align: right;
   position: fixed;
   top: 0;
@@ -74,6 +75,7 @@ html, body {  height: 100%; }
 
   @media (min-width: $screen-md-min){
     padding: 20px $content-h-padding 20px 45px;
+    height: 82px;
   }
 }
 
@@ -88,11 +90,11 @@ html, body {  height: 100%; }
 // Responsive section
 .main-section{
 
-  padding-top: 70px;
+  padding-top: 63px;
 
   @media (min-width: $screen-md-min){
     padding-left: $sidenav-width;
-    padding-top: 90px;
+    padding-top: 83px;
   }
 
 }
