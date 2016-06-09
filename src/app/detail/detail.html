@@ -13,10 +13,18 @@
     </div>
   </div>
 
+  <div class="video-social-info">
+    <div ng-if="vm.videoDetails.stats && vm.videoDetails.stats.plays" class="si-item"><i class="plays"></i>{{vm.videoDetails.stats.plays | thousandSuffix: 0}}</div>
+    <div class="si-item"><i class="likes"></i>{{vm.videoDetails.metadata.connections.likes.total | thousandSuffix: 0}}</div>
+    <div class="si-item"><i class="comments"></i>{{vm.videoDetails.metadata.connections.comments.total | thousandSuffix: 0}}</div>
+  </div>
 
   <div class="video-content">
-    <div class="video-title-wp">
-      <img class="vimeo-user-img" ng-src="{{vm.videoDetails.user.pictures.sizes[1].link}}" alt="" />
+    <div class="video-title-wp" ng-class="{'left-marginal' : vm.videoDetails.user.pictures &&
+      vm.videoDetails.user.pictures.sizes && vm.videoDetails.user.pictures.sizes.length >= 2}">
+      <img ng-if="vm.videoDetails.user.pictures &&
+      vm.videoDetails.user.pictures.sizes && vm.videoDetails.user.pictures.sizes.length >= 2"
+           class="vimeo-user-img" ng-src="{{vm.videoDetails.user.pictures.sizes[1].link}}" alt="" />
       <h1 class="video-title">{{vm.videoDetails.name}}</h1>
       <p class="vimeo-user-info">
         {{'global.FROM_LABEL' | translate}} <span class="video-user-name">{{vm.videoDetails.user.name}}</span>

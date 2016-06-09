@@ -79,9 +79,9 @@ $screen-md-min: 992px !default;
 .toogle-sidenav{
   border: none;
   outline: 0;
-  width: 37px;
-  height: 26px;
-  background: #ffffff url("/assets/images/vimeotest-assets.png") no-repeat 0 0px;
+  width: 38px;
+  height: 38px;
+  background: transparent url("/assets/images/vimeotest-assets.png") no-repeat 0 0;
   display: inline-block;
   vertical-align: middle;
   @media (min-width: $screen-md-min){
